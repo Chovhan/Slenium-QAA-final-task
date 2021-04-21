@@ -24,4 +24,10 @@ class ProductPage(BasePage):
         assert product_name_in_basket == product_name_on_page, f"Product names is not equals. Should be '{product_name_on_page}' but not '{product_name_in_basket}'"
 
     def should_be_message_about_adding_to_basket(self):
-        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), "There is no message that product was added to basket"
+        assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), "Success message is not presented, but should be"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), "Success message is presented, but should not be"
+
+    def should_not_be_success_message_on_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.ADD_TO_BASKET_MESSAGE), "Success message is not disappeared, but should be"
