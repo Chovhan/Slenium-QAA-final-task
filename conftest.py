@@ -13,7 +13,7 @@ def browser(request):
     browser_language = request.config.getoption("language")
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': browser_language})
-    browser = webdriver.Chrome(options=options, executable_path="../Files/chromedriver.exe")
+    browser = webdriver.Chrome(options=options)
 
     yield browser
 
